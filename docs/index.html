@@ -7,9 +7,12 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
 </head>
 <body>
   <div id="app"></div>
+  <div id="gitalk-container"></div>
   <script>
     window.$docsify = {
       name: '数据结构与算法之美',
@@ -17,20 +20,31 @@
 	  subMaxLevel: 3,
 	  noEmoji: true,
 	  auto2top: true,
+	  repo: 'xiao-xiaoming/DataStructure-BeautyOfAlgorithm',
 	  alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       }
     }
+	const gitalk = new Gitalk({
+	  clientID: '8e6bc57bb3f5cd52674c',
+	  clientSecret: '030f7b6bd7ed8991075c74768046f52adf8d6908',
+	  repo: 'DataStructure-BeautyOfAlgorithm',
+	  owner: 'xiao-xiaoming',
+	  admin: ['xiao-xiaoming'],
+	  distractionFreeMode: false  // Facebook-like distraction free mode
+	})
+
+	gitalk.render('gitalk-container')
   </script>
-  <!-- Put them above docsify.min.js -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
+  
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <!-- CDN files for docsify-katex -->
   <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
   <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"/>
   
-  <script src="//unpkg.com/prismjs/components/prism-c.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-c.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
   <script src="//unpkg.com/docsify-copy-code"></script>
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
