@@ -16,3 +16,12 @@
 
 [![stars](https://badgen.net/github/stars/xiao-xiaoming/DataStructure-BeautyOfAlgorithm?icon=github&color=4ab8a1)](https://github.com/xiao-xiaoming/DataStructure-BeautyOfAlgorithm) [![forks](https://badgen.net/github/forks/xiao-xiaoming/DataStructure-BeautyOfAlgorithm?icon=github&color=4ab8a1)](https://github.com/xiao-xiaoming/DataStructure-BeautyOfAlgorithm)
 
+常用Emoji表情：https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
+
+😠 	😲 	😍 	😜 	😝 	😋 	😘 	😌 
+
+😚 	 😷 	 😳 	 😃  	😅  	😆  	😁	😖
+
+😂 	 😊 	😄 	😢 	😭 	😨 	😣 	😡
+😔 	😱 	😪 	😏 	😓 	😥 	😫 	😉
+
