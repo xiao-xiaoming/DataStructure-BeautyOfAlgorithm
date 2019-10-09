@@ -1,11 +1,12 @@
-#### **移动端可点击左侧左下角按钮展开导航栏！**
+#### **移动端可点击左侧左下角按钮展开侧边栏目录！**
 
-#### **左侧导航栏的最上面的搜索框可进行内容搜索！**
+#### **左侧侧边栏的最上面的搜索框可进行内容搜索！**
+
+#### **每篇文档底部均支持评论！**
 
 [![stars](https://badgen.net/github/stars/xiao-xiaoming/DataStructure-BeautyOfAlgorithm?icon=github&color=4ab8a1)](https://github.com/xiao-xiaoming/DataStructure-BeautyOfAlgorithm) [![forks](https://badgen.net/github/forks/xiao-xiaoming/DataStructure-BeautyOfAlgorithm?icon=github&color=4ab8a1)](https://github.com/xiao-xiaoming/DataStructure-BeautyOfAlgorithm)
 
-[GitHub](<https://github.com/xiao-xiaoming/DataStructure-BeautyOfAlgorithm>)
-[目录](_sidebar.md)
+[侧边栏目录](_sidebar.md)
 
 ---
 
