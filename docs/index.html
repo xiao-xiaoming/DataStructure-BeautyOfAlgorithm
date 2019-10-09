@@ -12,8 +12,15 @@
 </head>
 <body>
   <div id="app"></div>
-  <div id="gitalk-container"></div>
   <script>
+	var gitalkConfig = {
+	  clientID: '8e6bc57bb3f5cd52674c',
+	  clientSecret: '030f7b6bd7ed8991075c74768046f52adf8d6908',
+	  repo: 'DataStructure-BeautyOfAlgorithm',
+	  owner: 'xiao-xiaoming',
+	  admin: ['xiao-xiaoming'],
+	  distractionFreeMode: false  // Facebook-like distraction free mode
+	}
     window.$docsify = {
       name: '数据结构与算法之美',
 	  loadSidebar: true,
@@ -23,18 +30,34 @@
 	  repo: 'xiao-xiaoming/DataStructure-BeautyOfAlgorithm',
 	  alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
-      }
+      },
+	  plugins: [
+        function (hook, vm) {
+          hook.doneEach(function() {
+            var label, domObj, main, divEle, gitalk;
+            label = vm.route.path.split("/").pop();
+            domObj = Docsify.dom;
+            main = domObj.getNode("#main");
+            Array.apply(
+              null,
+              document.querySelectorAll("div.gitalk-container")
+            ).forEach(function(ele) {
+              ele.remove();
+            });
+            divEle = domObj.create("div");
+            divEle.id = "gitalk-container-" + label;
+            divEle.className = "gitalk-container";
+            divEle.style = "width: " + main.clientWidth + "px; margin: 0 auto 20px;";
+            domObj.appendTo(domObj.find(".content"), divEle);
+            gitalk = new Gitalk(
+              Object.assign(gitalkConfig, { id: !label ? "home" : label })
+            );
+            gitalk.render("gitalk-container-" + label);
+          });
+        }
+      ]
     }
-	const gitalk = new Gitalk({
-	  clientID: '8e6bc57bb3f5cd52674c',
-	  clientSecret: '030f7b6bd7ed8991075c74768046f52adf8d6908',
-	  repo: 'DataStructure-BeautyOfAlgorithm',
-	  owner: 'xiao-xiaoming',
-	  admin: ['xiao-xiaoming'],
-	  distractionFreeMode: false  // Facebook-like distraction free mode
-	})
 
-	gitalk.render('gitalk-container')
   </script>
   
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
