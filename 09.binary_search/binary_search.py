@@ -12,7 +12,7 @@ def binary_search(arr: list, value) -> int:
             high = mid - 1
         else:
             low = mid + 1
-    return -1  # 未找到返回-1
+    return -(low + 1)  # 未找到返回-插入点-1
 
 
 # 2分查找第一个值等于给定值的元素
@@ -78,7 +78,6 @@ def bsearch_last_simple(arr: list, value: int) -> int:
         return -1
 
 
-
 # 查找第一个大于等于给定值的元素
 def bsearch_first_not_less(arr: list, value: int) -> int:
     low, high = 0, len(arr) - 1
@@ -138,8 +137,14 @@ def bsearch_last_not_greater_simple(arr: list, value: int) -> int:
     else:
         return -1
 
+
 if __name__ == "__main__":
-    s = bsearch_last_not_greater([1, 3, 4, 5, 6, 8, 8, 8, 11, 18], 8)
+    arr = [1, 3, 4, 5, 6, 8, 8, 8, 11, 18]
+    s = bsearch_last_not_greater(arr, 8)
     print(s)
-    s = bsearch_last_not_greater_simple([1, 3, 4, 5, 6, 8, 8, 8, 11, 18], 8)
+    s = bsearch_last_not_greater_simple(arr, 8)
     print(s)
+    for a in [0, 2, 4, 7]:
+        search = binary_search(arr, a)
+        if search < 0: search = -(search + 1)
+        print(search, end=",")
