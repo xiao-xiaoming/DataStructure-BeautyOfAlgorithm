@@ -6,7 +6,7 @@ from typing import List
 
 
 def min_dist_DP(matrix: List[List[int]]) -> int:
-    m, n = len(weights), len(weights[0])
+    m, n = len(matrix), len(matrix[0])
     states = [[0] * n for _ in range(m)]
     sum = 0
     for j in range(n):

@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
-__author__ = 'xiaoxiaoming'
+import bisect
 
+__author__ = 'xiaoxiaoming'
 
 from typing import List
 
 
 def lengthOfLIS(nums: List[int]) -> int:
     n = len(nums)
+    if n <= 1: return n
     # memo用于避免冗余计算
     memo = [[-1] * n for _ in range(n + 1)]
 
@@ -36,6 +38,7 @@ def longest_increasing_subsequence(nums: List[int]) -> int:
     最后返回dp列表最大值，即可得到全局最长上升子序列长度。
     """
     n = len(nums)
+    if n <= 1: return n
     dp = [1] * n
     result = 1
     for i in range(1, n):
@@ -47,7 +50,9 @@ def longest_increasing_subsequence(nums: List[int]) -> int:
 
 
 def lengthOfLIS_by_binary_search(nums: [int]) -> int:
-    tails, res = [0] * len(nums), 0
+    n = len(nums)
+    if n <= 1: return n
+    tails, res = [0] * n, 0
     for num in nums:
         low, high = 0, res - 1
         # 在tails数组中通过二分搜索查找num的插入位置
@@ -63,8 +68,26 @@ def lengthOfLIS_by_binary_search(nums: [int]) -> int:
     return res
 
 
+def maxEnvelopes(envelopes: List[List[int]]) -> int:
+    envelopes.sort(key=lambda a: (a[0], -a[1]))
+    height = list(map(lambda x: x[1], envelopes))
+    return lengthOfLIS_by_binary_search2(height)
+
+
+def lengthOfLIS_by_binary_search2(nums: [int]) -> int:
+    n = len(nums)
+    if n <= 1: return n
+    tails, res = [0] * n, 0
+    for num in nums:
+        i = bisect.bisect_left(tails, num, 0, res)
+        tails[i] = num
+        if i == res: res += 1
+    return res
+
+
 if __name__ == '__main__':
     nums = [10, 9, 2, 5, 3, 7, 101, 18]
     print(lengthOfLIS(nums))
     print(longest_increasing_subsequence(nums))
     print(lengthOfLIS_by_binary_search(nums))
+    print(lengthOfLIS_by_binary_search2(nums))

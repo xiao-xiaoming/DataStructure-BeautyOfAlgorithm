@@ -78,3 +78,4 @@ if __name__ == "__main__":
     print(array)
     array.insert(3, 7)
     print(array)
+
